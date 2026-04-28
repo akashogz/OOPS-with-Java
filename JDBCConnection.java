@@ -1,36 +1,22 @@
-class Student {
-    int id;
-    String name;
-    int age;
+import java.sql.*;
 
-    Student() {
-        id = 0;
-        name = "Unknown";
-        age = 0;
-    }
 
-    Student(int id, String name, int age) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-    }
 
-    void display() {
-        System.out.println("ID: " + id);
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-    }
-}
+public void JDBCConnection {
+    private static final String url = "";
+    private static final String userName = "";
+    private static final String password = "";
 
-public class Exp1 {
-    public static void main(String[] args) {
-        Student s1 = new Student();
-        s1.display();
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
 
-        System.out.println();
+        Connection con = DriverManager.getConnection(url, userName, password);
 
-        Student s2 = new Student(101, "Akash", 19);
-        s2.display();
+        Statement stmt = con.createStatement();
+
+        String query = "Select * from students";
+        stmt.executeQuery(query);
+
+
     }
 }
-
